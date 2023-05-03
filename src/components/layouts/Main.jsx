@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 import NavigationBar from '../shared/NavigationBar';
 import Banner from '../Banner/Banner';
 import ChefList from '../ChefList/ChefList';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import ChefDetails from '../ChefDetails/ChefDetails';
 
 const Main = () => {
