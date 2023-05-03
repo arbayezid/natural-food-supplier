@@ -1,8 +1,18 @@
-import React from 'react';
-import { Container, Nav, Navbar } from 'react-bootstrap';
+import React, { useContext } from 'react';
+import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../providers/AuthProvider';
 
 const NavigationBar = () => {
+    const {user, logout} = useContext(AuthContext);
+    
+    const handleLogout = () =>{
+         logout()
+         .then()
+         .catch(error =>{
+            console.log(error.message)
+         })
+    }
     return (
         <Container>
             <Navbar bg="light" expand="lg">
@@ -18,9 +28,9 @@ const NavigationBar = () => {
                             
                         </Nav>
                         {/* <p><FaUserCircle style={{ fontSize: '2rem', marginRight: '20px' }}></FaUserCircle></p> */}
-                        {/* {user ? <Button onClick={handleLogout} variant="dark">Logout</Button> :
-                            <Link to='/login'><Button variant="dark">Login</Button></Link>} */}
-                        <Link className='text-decoration-none text-black' to='/login'>Login</Link>
+                        {user ? <Button onClick={handleLogout} variant="dark">Logout</Button> :
+                            <Link to='/login'><Button variant="dark">Login</Button></Link>}
+                        
                     </Navbar.Collapse>
                 </Container>
             </Navbar>

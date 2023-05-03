@@ -8,6 +8,7 @@ import LoginLayout from "./components/layouts/LoginLayout";
 import SingleChefDetails from "./components/SingleChef/SingleChefDetails";
 import ErrorPage from "./components/ErrorPage/ErrorPage";
 import Register from "./components/pages/Register";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -35,7 +36,7 @@ const router = createBrowserRouter([
       },
       {
         path:'cheflist/:id',
-        element: <SingleChefDetails></SingleChefDetails>,
+        element: <PrivateRoute><SingleChefDetails></SingleChefDetails></PrivateRoute>,
         loader: ({params}) => fetch(`http://localhost:5000/cheflist/${params.id}`)
       }
     ]

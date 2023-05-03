@@ -1,11 +1,15 @@
 import React, { useContext } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 
 const Login = () => {
     const {signInUser, googleSignIn, githubSignIn} = useContext(AuthContext)
+    const navigate = useNavigate();
+    const location = useLocation();
+    
+    const from = location?.state?.from?.pathname || '/'
 
     const handleSignIn = (event) =>{
         event.preventDefault();
@@ -18,7 +22,7 @@ const Login = () => {
         signInUser(email,password)
         .then(result =>{
             const createdUser = result.user;
-            console.log(createdUser)
+            navigate(from)
         })
         .catch(error =>{
             console.log(error.message)
@@ -29,7 +33,7 @@ const Login = () => {
         googleSignIn()
         .then(result =>{
             const createdUser = result.user;
-            console.log(createdUser)
+            navigate(from)
         })
         .catch(error =>{
             console.log(error.message)
@@ -41,7 +45,7 @@ const Login = () => {
         githubSignIn()
         .then(result =>{
             const createdUser = result.user
-            console.log(createdUser)
+            navigate(from)
         })
         .catch(error =>{
             console.log(error.message)
