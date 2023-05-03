@@ -34,18 +34,6 @@ const router = createBrowserRouter([
         loader: ({params}) => fetch(`http://localhost:5000/cheflist/${params.id}`)
       }
     ]
-  },
-  {
-    path: '/cheflist',
-    element: <Main></Main>,
-    children: [
-      {
-        path: ':id',
-        element: <ChefList></ChefList>
-      }
-    ]
-
-
   }
 ])
 export default router;

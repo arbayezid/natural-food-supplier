@@ -13,14 +13,14 @@ const NavigationBar = () => {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="d-flex gap-4 mx-auto" >
                             <Link className='text-decoration-none text-black' to='/'>Home</Link>
-                            <Link className='text-decoration-none text-black' to='/login'>Login</Link>
                             <Link className='text-decoration-none text-black' to='/cheflist'>Our Chef</Link>
-                            <Link className='text-decoration-none text-black' to='/blog'>Blog</Link>
+                           <Link className='text-decoration-none text-black' to='/blog'>Blog</Link> 
+                            
                         </Nav>
                         {/* <p><FaUserCircle style={{ fontSize: '2rem', marginRight: '20px' }}></FaUserCircle></p> */}
                         {/* {user ? <Button onClick={handleLogout} variant="dark">Logout</Button> :
                             <Link to='/login'><Button variant="dark">Login</Button></Link>} */}
-                        <button>user profile</button>
+                        <Link className='text-decoration-none text-black' to='/login'>Login</Link>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
