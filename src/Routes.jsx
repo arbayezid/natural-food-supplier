@@ -7,6 +7,7 @@ import ChefDetails from "./components/ChefDetails/ChefDetails";
 import LoginLayout from "./components/layouts/LoginLayout";
 import SingleChefDetails from "./components/SingleChef/SingleChefDetails";
 import ErrorPage from "./components/ErrorPage/ErrorPage";
+import Register from "./components/pages/Register";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
       {
         path: '/login',
         element: <Login></Login>
+      },
+      {
+        path: '/register',
+        element: <Register></Register>
       },
       {
         path: '/',
