@@ -2,9 +2,10 @@ import React, { useContext } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
+import { FaGithub, FaGoogle } from 'react-icons/fa';
 
 const Login = () => {
-    const {signInUser} = useContext(AuthContext)
+    const {signInUser, googleSignIn, githubSignIn} = useContext(AuthContext)
 
     const handleSignIn = (event) =>{
         event.preventDefault();
@@ -23,6 +24,30 @@ const Login = () => {
             console.log(error.message)
         })
     }
+
+    const handleGoogle = () =>{
+        googleSignIn()
+        .then(result =>{
+            const createdUser = result.user;
+            console.log(createdUser)
+        })
+        .catch(error =>{
+            console.log(error.message)
+        })
+    }
+
+
+    const handleGithub = () =>{
+        githubSignIn()
+        .then(result =>{
+            const createdUser = result.user
+            console.log(createdUser)
+        })
+        .catch(error =>{
+            console.log(error.message)
+        })
+    }
+
 
     return (
         <Container>
@@ -44,6 +69,14 @@ const Login = () => {
                 <br/>
                 <Form.Text className="text-secondary">
                     Don't have an account? <Link to='/register'>Register</Link>
+                </Form.Text><br/><br/>
+
+                <Form.Text className="text-secondary border px-3 py-2 rounded">
+                    <Link onClick={handleGoogle} className='text-decoration-none'><FaGoogle></FaGoogle> SignIn With Google</Link>
+                </Form.Text><br/><br/>
+
+                <Form.Text className=" border px-3 py-2 rounded">
+                    <Link onClick={handleGithub} className='text-decoration-none text-black'><FaGithub></FaGithub> SignIn With Github</Link>
                 </Form.Text>
                 <Form.Text className="text-success">
                     
