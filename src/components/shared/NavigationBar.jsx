@@ -14,6 +14,7 @@ const NavigationBar = () => {
                         <Nav className="d-flex gap-4 mx-auto" >
                             <Link className='text-decoration-none text-black' to='/'>Home</Link>
                             <Link className='text-decoration-none text-black' to='/login'>Login</Link>
+                            <Link className='text-decoration-none text-black' to='/cheflist'>Our Chef</Link>
                             <Link className='text-decoration-none text-black' to='/blog'>Blog</Link>
                         </Nav>
                         {/* <p><FaUserCircle style={{ fontSize: '2rem', marginRight: '20px' }}></FaUserCircle></p> */}
