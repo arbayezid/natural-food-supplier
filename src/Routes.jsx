@@ -5,6 +5,7 @@ import Banner from "./components/Banner/Banner";
 import ChefList from "./components/ChefList/ChefList";
 import ChefDetails from "./components/ChefDetails/ChefDetails";
 import LoginLayout from "./components/layouts/LoginLayout";
+import SingleChefDetails from "./components/SingleChef/SingleChefDetails";
 
 const router = createBrowserRouter([
   {
@@ -22,7 +23,13 @@ const router = createBrowserRouter([
       },
       {
         path: 'cheflist',
-        element: <ChefList></ChefList>
+        element: <ChefList></ChefList>,
+        loader: () => fetch('http://localhost:5000/cheflist')
+      },
+      {
+        path:'cheflist/:id',
+        element: <SingleChefDetails></SingleChefDetails>,
+        loader: ({params}) => fetch(`http://localhost:5000/cheflist/${params.id}`)
       }
     ]
   },
