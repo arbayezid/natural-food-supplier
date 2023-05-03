@@ -8,17 +8,17 @@ const SingleChefDetails = () => {
     const singleChef = useLoaderData();
     const { chef_name, years_of_experience, number_of_recipes, chef_picture, recipes, likes } = singleChef;
     return (
-        <div className='d-flex container mt-5 gap-3'>
-            <Card style={{ width: '48rem', fontSize: '20px', textAlign: 'center' }}>
-                <Card.Img className='img-fluid' style={{ height: '300px' }} variant="top" src={chef_picture} />
-                <Card.Body>
+        <div className='d-flex container mt-5 gap-3 border p-2 rounded'>
+            <div style={{ width: '48rem', fontSize: '20px', textAlign: 'center' }}>
+                <Card.Img className=' rounded' style={{ height: '300px',width: '500px' }} variant="top" src={chef_picture} />
+                <Card.Body className='mt-3'>
                     <Card.Title>Name: {chef_name}</Card.Title>
-                    <Card.Text>Our Chefs offer you perfect cooking, best served dishes with fresh ingredients and old recipes</Card.Text>
-                    <Card.Text>Experience: {years_of_experience} years experience</Card.Text>
-                    <Card.Text>Recipes: {number_of_recipes} recipes</Card.Text>
+                    <Card.Text>We offer you perfect cooking, best served dishes with fresh ingredients and old recipes.</Card.Text>
+                    <Card.Text>Experience: {years_of_experience} years experience.</Card.Text>
+                    <Card.Text>Recipes: {number_of_recipes} recipes.</Card.Text>
 
                 </Card.Body>
-            </Card>
+            </div>
 
             <div>
                 <div className='mb-5'>
