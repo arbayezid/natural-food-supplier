@@ -38,6 +38,7 @@ const Register = () => {
         })
         .catch(error =>{
             console.log(error.message)
+            setError(error.message)
         })
         console.log(name,email,photo,password)
 
@@ -51,6 +52,7 @@ const Register = () => {
         .then()
         .catch(error=>{
             console.log(error.message)
+            setError(error.message)
         })
     }
     
@@ -85,9 +87,7 @@ const Register = () => {
                 <Form.Text className="text-secondary">
                     Already have an account?<Link to='/login'>Login</Link><br/>
                 </Form.Text>
-                <Form.Text className="text-success">
-
-                </Form.Text>
+                
                 <Form.Text className="text-danger">
                     {error}
                 </Form.Text>

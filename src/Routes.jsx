@@ -9,8 +9,6 @@ import ErrorPage from "./components/ErrorPage/ErrorPage";
 import Register from "./components/pages/Register";
 import PrivateRoute from "./PrivateRoute";
 import ChefLayout from "./components/layouts/ChefLayout";
-import About from "./components/About Us/About";
-import MenuList from "./components/Our Menu/MenuList";
 import Blog from "./components/pages/Blog/Blog";
 
 const router = createBrowserRouter([
@@ -67,12 +65,12 @@ const router = createBrowserRouter([
       {
         path: '/cheflist',
         element: <ChefList></ChefList>,
-        loader: () => fetch('http://localhost:5000/cheflist'),
+        loader: () => fetch('https://assignment-10-server-arbayezid.vercel.app/cheflist'),
       },
       {
         path: '/cheflist/:id',
         element: <PrivateRoute><SingleChefDetails></SingleChefDetails></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/cheflist/${params.id}`)
+        loader: ({ params }) => fetch(`https://assignment-10-server-arbayezid.vercel.app/cheflist/${params.id}`)
       }
     ]
   }
