@@ -1,17 +1,17 @@
 import React, { useContext } from 'react';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
 
 const NavigationBar = () => {
-    const {user, logout} = useContext(AuthContext);
-    
-    const handleLogout = () =>{
-         logout()
-         .then()
-         .catch(error =>{
-            console.log(error.message)
-         })
+    const { user, logout } = useContext(AuthContext);
+
+    const handleLogout = () => {
+        logout()
+            .then()
+            .catch(error => {
+                console.log(error.message)
+            })
     }
     return (
         <Container>
@@ -21,16 +21,21 @@ const NavigationBar = () => {
 
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
-                        <Nav className="d-flex gap-4 mx-auto" >
-                            <Link className='text-decoration-none text-black' to='/'>Home</Link>
-                            <Link className='text-decoration-none text-black' to='/cheflist'>Our Chef</Link>
-                           <Link className='text-decoration-none text-black' to='/blog'>Blog</Link> 
-                            
+                        <Nav className="d-flex gap-4 mx-auto fw-semibold" >
+                            <li>
+                                <NavLink to='/' className={({ isActive }) => isActive ? 'text-danger' : 'text-decoration-none'}>Home</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to='/cheflist' className={({ isActive }) => isActive ? 'text-danger' : 'text-decoration-none'}>Our Chef</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to='/blog' className={({ isActive }) => isActive ? 'text-danger ' : 'text-decoration-none'}>Blog</NavLink>
+                            </li>
                         </Nav>
                         {/* <p><FaUserCircle style={{ fontSize: '2rem', marginRight: '20px' }}></FaUserCircle></p> */}
                         {user ? <Button onClick={handleLogout} variant="dark">Logout</Button> :
                             <Link to='/login'><Button variant="dark">Login</Button></Link>}
-                        
+
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
