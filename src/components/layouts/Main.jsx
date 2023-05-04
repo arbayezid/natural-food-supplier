@@ -12,6 +12,7 @@ const Main = () => {
             <NavigationBar></NavigationBar>
             <Outlet></Outlet>
             <ChefDetails></ChefDetails>
+            
         </div>
     );
 };

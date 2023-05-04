@@ -2,18 +2,18 @@ import React from 'react';
 import NavigationBar from '../shared/NavigationBar';
 import { Outlet } from 'react-router-dom';
 import Footer from '../shared/Footer';
-import ChefList from '../ChefList/ChefList';
-import ChefDetails from '../ChefDetails/ChefDetails';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-
-const LoginLayout = () => {
+const ChefLayout = () => {
     return (
         <div>
             <NavigationBar></NavigationBar>
             <Outlet></Outlet>
             <Footer></Footer>
+            <ToastContainer/>
         </div>
     );
 };
 
-export default LoginLayout;
+export default ChefLayout;

@@ -1,12 +1,21 @@
-import React from 'react';
-import { Card } from 'react-bootstrap';
-import { FaThumbsUp } from 'react-icons/fa';
+import React, { useState } from 'react';
+import { Button, Card } from 'react-bootstrap';
+import { FaHeart, FaRegHeart, FaThumbsUp } from 'react-icons/fa';
 import { useLoaderData, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
+
 
 const SingleChefDetails = () => {
+    const [isDisabled,setIsDisabled] = React.useState(false)
     const { id } = useParams()
     const singleChef = useLoaderData();
     const { chef_name, years_of_experience, number_of_recipes, chef_picture, recipes, likes } = singleChef;
+
+
+    const handledisable = (event) =>{
+        toast('The recipe added your favourite list')
+        
+    }
     return (
         <div className='d-flex container mt-5 gap-3 border p-2 rounded'>
             <div style={{ width: '48rem', fontSize: '20px', textAlign: 'center' }}>
@@ -22,7 +31,13 @@ const SingleChefDetails = () => {
 
             <div>
                 <div className='mb-5'>
-                    <span className='fw-bold'>Recipe Name:</span> {recipes[0].recipe_name}<br /><br />
+                    <span className='fw-bold'>Recipe Name:</span> {recipes[0].recipe_name} <span onClick={handledisable}
+                    className='d-flex justify-content-end me-3'><FaRegHeart></FaRegHeart>
+                    </span>
+                    <span className='fw-bold'>Recipe Name:</span> {recipes[0].recipe_name} 
+                    
+                    {/* <span className='d-flex justify-content-end me-3'><FaHeart></FaHeart></span> */}
+                    
                     <span className='fw-bold'>Ingredients:</span> {recipes[0].ingredients}<br />
                     <span className='fw-bold'>Cooking Method:</span> {recipes[0].cooking_method}<br />
                     <span className='fw-bold'>Ratings:</span> {recipes[0].ratings}

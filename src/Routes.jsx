@@ -9,6 +9,7 @@ import SingleChefDetails from "./components/SingleChef/SingleChefDetails";
 import ErrorPage from "./components/ErrorPage/ErrorPage";
 import Register from "./components/pages/Register";
 import PrivateRoute from "./PrivateRoute";
+import ChefLayout from "./components/layouts/ChefLayout";
 
 const router = createBrowserRouter([
   {
@@ -29,15 +30,22 @@ const router = createBrowserRouter([
         element: <Banner></Banner>
 
       },
+
+    ]
+  },
+  {
+    path: 'cheflist',
+    element: <ChefLayout></ChefLayout>,
+    children: [
       {
-        path: 'cheflist',
+        path: '/cheflist',
         element: <ChefList></ChefList>,
-        loader: () => fetch('http://localhost:5000/cheflist')
+        loader: () => fetch('http://localhost:5000/cheflist'),
       },
       {
-        path:'cheflist/:id',
+        path: '/cheflist/:id',
         element: <PrivateRoute><SingleChefDetails></SingleChefDetails></PrivateRoute>,
-        loader: ({params}) => fetch(`http://localhost:5000/cheflist/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/cheflist/${params.id}`)
       }
     ]
   }
