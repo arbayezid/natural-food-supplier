@@ -10,27 +10,45 @@ import ErrorPage from "./components/ErrorPage/ErrorPage";
 import Register from "./components/pages/Register";
 import PrivateRoute from "./PrivateRoute";
 import ChefLayout from "./components/layouts/ChefLayout";
+import About from "./components/About Us/About";
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <LoginLayout></LoginLayout>,
+    element: <Main></Main>,
     errorElement: <ErrorPage></ErrorPage>,
     children: [
-      {
-        path: '/login',
-        element: <Login></Login>
-      },
-      {
-        path: '/register',
-        element: <Register></Register>
-      },
+      
       {
         path: '/',
         element: <Banner></Banner>
 
       },
+      {
+        path: '/about',
+        element: <About></About>
+      },
 
+    ]
+  },
+  {
+    path: 'login',
+    element: <LoginLayout></LoginLayout>,
+    children: [
+      {
+        path: '/login',
+        element: <Login></Login>
+      }
+    ]
+  },
+  {
+    path: 'register',
+    element: <LoginLayout></LoginLayout>,
+    children: [
+      {
+        path: '/register',
+        element: <Register></Register>
+      },
     ]
   },
   {

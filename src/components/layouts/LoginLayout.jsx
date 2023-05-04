@@ -5,6 +5,7 @@ import Footer from '../shared/Footer';
 import ChefList from '../ChefList/ChefList';
 import ChefDetails from '../ChefDetails/ChefDetails';
 import About from '../About Us/About';
+import MenuList from '../Our Menu/MenuList';
 
 
 const LoginLayout = () => {
@@ -12,7 +13,6 @@ const LoginLayout = () => {
         <div>
             <NavigationBar></NavigationBar>
             <Outlet></Outlet>
-            <About></About>
             <Footer></Footer>
         </div>
     );
