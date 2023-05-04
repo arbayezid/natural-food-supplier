@@ -17,9 +17,9 @@ const SingleChefDetails = () => {
         
     }
     return (
-        <div className='d-flex container mt-5 gap-3 border p-2 rounded'>
-            <div style={{ width: '48rem', fontSize: '20px', textAlign: 'center' }}>
-                <Card.Img className=' rounded' style={{ height: '300px',width: '500px' }} variant="top" src={chef_picture} />
+        <div className='d-lg-flex container mt-5 gap-3 border p-2 rounded'>
+            <div style={{  fontSize: '20px', textAlign: 'center' }}>
+                <Card.Img className=' rounded' style={{ height: '300px',width: '400px' }} variant="top" src={chef_picture} />
                 <Card.Body className='mt-3'>
                     <Card.Title>Name: {chef_name}</Card.Title>
                     <Card.Text>We offer you perfect cooking, best served dishes with fresh ingredients and old recipes.</Card.Text>
