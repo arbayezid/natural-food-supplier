@@ -17,7 +17,7 @@ const NavigationBar = () => {
         <Container>
             <Navbar bg="light" expand="lg">
                 <Container>
-                    <Nav className='fs-3 fw-bold font-bold'>Natural Food Supplier</Nav>
+                    <Link to='/' className='fs-3 fw-semibold text-decoration-none text-black'>Natural Food Supplier</Link>
 
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
@@ -32,7 +32,6 @@ const NavigationBar = () => {
                                 <NavLink to='/blog' className={({ isActive }) => isActive ? 'text-danger ' : 'text-decoration-none'}>Blog</NavLink>
                             </li>
                         </Nav>
-                        {/* <p><FaUserCircle style={{ fontSize: '2rem', marginRight: '20px' }}></FaUserCircle></p> */}
                         
                         {user ? <div className='d-flex gap-2 align-items-center'>
                             <span className='fw-semibold'>{user?.displayName}</span>

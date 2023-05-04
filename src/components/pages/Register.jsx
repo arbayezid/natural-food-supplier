@@ -7,13 +7,14 @@ import { updateProfile } from 'firebase/auth';
 
 
 const Register = () => {
-    const {createUser,user} = useContext(AuthContext);
+    const {createUser} = useContext(AuthContext);
     const [error,setError] = useState('');
     const navigate = useNavigate();
     const location = useLocation();
 
     const from = location?.state?.from?.pathname || '/'
 
+    // email password register
     const handleRegister = (event) => {
         event.preventDefault();
 
@@ -42,6 +43,7 @@ const Register = () => {
 
     }
 
+    // Update user profile
     const updateUserInfo = (user,name) =>{
         updateProfile(user,{
             displayName: name

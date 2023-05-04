@@ -3,7 +3,6 @@ import Main from "./components/layouts/Main";
 import Login from "./components/pages/Login";
 import Banner from "./components/Banner/Banner";
 import ChefList from "./components/ChefList/ChefList";
-import ChefDetails from "./components/ChefDetails/ChefDetails";
 import LoginLayout from "./components/layouts/LoginLayout";
 import SingleChefDetails from "./components/SingleChef/SingleChefDetails";
 import ErrorPage from "./components/ErrorPage/ErrorPage";
@@ -11,6 +10,8 @@ import Register from "./components/pages/Register";
 import PrivateRoute from "./PrivateRoute";
 import ChefLayout from "./components/layouts/ChefLayout";
 import About from "./components/About Us/About";
+import MenuList from "./components/Our Menu/MenuList";
+import Blog from "./components/pages/Blog/Blog";
 
 const router = createBrowserRouter([
   {
@@ -22,14 +23,21 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Banner></Banner>
-
       },
-      {
-        path: '/about',
-        element: <About></About>
-      },
-
+      
     ]
+  },
+  {
+    
+      path: 'blog',
+      element: <LoginLayout></LoginLayout>,
+      children: [
+         {
+          path: '/blog',
+          element: <Blog></Blog>
+         }
+      ]
+    
   },
   {
     path: 'login',
@@ -38,7 +46,8 @@ const router = createBrowserRouter([
       {
         path: '/login',
         element: <Login></Login>
-      }
+      },
+      
     ]
   },
   {

@@ -1,16 +1,18 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 
 const Login = () => {
+    const [error,setError] = useState('');
     const {signInUser, googleSignIn, githubSignIn} = useContext(AuthContext)
     const navigate = useNavigate();
     const location = useLocation();
     
     const from = location?.state?.from?.pathname || '/'
 
+    // Email Password Signin
     const handleSignIn = (event) =>{
         event.preventDefault();
 
@@ -26,9 +28,11 @@ const Login = () => {
         })
         .catch(error =>{
             console.log(error.message)
+            setError(error.message)
         })
     }
 
+    // Google Signin
     const handleGoogle = () =>{
         googleSignIn()
         .then(result =>{
@@ -37,10 +41,11 @@ const Login = () => {
         })
         .catch(error =>{
             console.log(error.message)
+            setError(error.message)
         })
     }
 
-
+// Github Signin
     const handleGithub = () =>{
         githubSignIn()
         .then(result =>{
@@ -49,6 +54,7 @@ const Login = () => {
         })
         .catch(error =>{
             console.log(error.message)
+            setError(error.message)
         })
     }
 
@@ -81,12 +87,12 @@ const Login = () => {
 
                 <Form.Text className=" border px-3 py-2 rounded">
                     <Link onClick={handleGithub} className='text-decoration-none text-black'><FaGithub></FaGithub> SignIn With Github</Link>
-                </Form.Text>
+                </Form.Text><br/><br/>
                 <Form.Text className="text-success">
                     
                 </Form.Text>
                 <Form.Text className="text-danger">
-                   
+                   {error}
                 </Form.Text>
             </Form>
         </Container>

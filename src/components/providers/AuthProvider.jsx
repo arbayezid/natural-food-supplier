@@ -11,36 +11,37 @@ const AuthProvider = ({children}) => {
     const [user,setUser] = useState({});
     const [loader,setLoader] = useState(true);
 
+    // Register User
     const createUser = (email,password) =>{
         setLoader(true)
         return createUserWithEmailAndPassword(auth,email,password)
     }
 
+    // Signi  user
     const signInUser = (email,password) =>{
         setLoader(true)
         return signInWithEmailAndPassword(auth,email,password)
     }
 
-    const getProfileDetails = (name,photoUrl) =>{
-       return updateProfile(name,photoUrl)
-    }
-
+    // LOGOUT
     const logout = () =>{
         setLoader(true)
         return signOut(auth)
     }
 
+    // Google Signin
     const googleSignIn = () =>{
         setLoader(true)
         return signInWithPopup(auth,googleProvider)
     }
 
+    // Github Signin
     const githubSignIn = () =>{
         setLoader(true)
         return signInWithPopup(auth,githubProvider)
     }
 
-
+   // Toogle Login/Logout
     useEffect(()=>{
         const unSubscribe = onAuthStateChanged(auth, (loggedUser)=>{
             setUser(loggedUser) 
@@ -55,7 +56,6 @@ const AuthProvider = ({children}) => {
     const authInfo = {
         user,
         loader,
-        getProfileDetails,
         createUser,
         signInUser,
         googleSignIn,
