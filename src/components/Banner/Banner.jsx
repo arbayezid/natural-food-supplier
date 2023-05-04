@@ -1,6 +1,7 @@
 import React from 'react';
 import banner from '../../assets/chef-banner.jpg'
 import { Container } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const Banner = () => {
     return (
@@ -8,7 +9,7 @@ const Banner = () => {
             <div>
                 <h2 className='fs-3 fw-bold'>Natural Food Supplier</h2>
                 <p className='text-secondary'>Our Chefs offer you perfect cooking,<br/> best served dishes with fresh ingredients<br/> and old recipes.</p>
-                <button className='bg-gray border-0 px-3 py-2 rounded'>Learn More</button>
+                <Link to='/cheflist'><button className='bg-danger text-white fw-bold border-0 px-3 py-2 rounded'>See Our Chef</button></Link>
             </div>
 
             <div>

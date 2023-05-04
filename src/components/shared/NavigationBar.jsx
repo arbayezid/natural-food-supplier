@@ -33,7 +33,12 @@ const NavigationBar = () => {
                             </li>
                         </Nav>
                         {/* <p><FaUserCircle style={{ fontSize: '2rem', marginRight: '20px' }}></FaUserCircle></p> */}
-                        {user ? <Button onClick={handleLogout} variant="dark">Logout</Button> :
+                        
+                        {user ? <div className='d-flex gap-2 align-items-center'>
+                            <span className='fw-semibold'>{user?.displayName}</span>
+                            {/* <span className='fw-semibold'>{user?.photoURL}</span> */}
+                            <Button onClick={handleLogout} variant="dark">Logout</Button>
+                        </div> :
                             <Link to='/login'><Button variant="dark">Login</Button></Link>}
 
                     </Navbar.Collapse>

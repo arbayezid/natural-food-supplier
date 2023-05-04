@@ -1,13 +1,18 @@
 import React, { useContext, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
+import { updateProfile } from 'firebase/auth';
 
 
 
 const Register = () => {
-    const {createUser} = useContext(AuthContext);
+    const {createUser,user} = useContext(AuthContext);
     const [error,setError] = useState('');
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location?.state?.from?.pathname || '/'
 
     const handleRegister = (event) => {
         event.preventDefault();
@@ -27,6 +32,8 @@ const Register = () => {
             const createdUser = result.user;
             setError('')
             console.log(createdUser)
+            navigate(from)
+            updateUserInfo(createdUser, name, photo)
         })
         .catch(error =>{
             console.log(error.message)
@@ -34,6 +41,17 @@ const Register = () => {
         console.log(name,email,photo,password)
 
     }
+
+    const updateUserInfo = (user,name) =>{
+        updateProfile(user,{
+            displayName: name
+        })
+        .then()
+        .catch(error=>{
+            console.log(error.message)
+        })
+    }
+    
     return (
         <Container>
             <Form onSubmit={handleRegister} className='w-25 mx-auto'>
