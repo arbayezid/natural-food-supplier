@@ -65,7 +65,7 @@ const router = createBrowserRouter([
       {
         path: '/cheflist',
         element: <ChefList></ChefList>,
-        loader: () => fetch('https://assignment-10-server-arbayezid.vercel.app/cheflist'),
+        loader:  () => fetch('https://assignment-10-server-arbayezid.vercel.app/cheflist'),
       },
       {
         path: '/cheflist/:id',
